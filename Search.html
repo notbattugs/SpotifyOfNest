@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Spotify - Search</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <link href="https://fonts.cdnfonts.com/css/circular-std" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
+    />
+    <script
+      src="https://kit.fontawesome.com/b13453d432.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: 'rgb(16 18 25)',
+              grad1: '#171033',
+              grad2: '#67114c',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      * {
+        font-family: 'Circular Std', sans-serif;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="flex">
+      <aside class="bg-black w-[280px] h-screen">
+        <img
+          class="pt-6 pl-6 pr-14"
+          src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png"
+          width="220px"
+        />
+        <section>
+          <div class="flex items-center mt-8 ml-6">
+            <svg
+              role="img"
+              height="24"
+              width="24"
+              aria-hidden="true"
+              class="Svg-sc-ytk21e-0 ldgdZj home-icon"
+              viewBox="0 0 24 24"
+              data-encore-id="icon"
+            >
+              <path
+                fill="gray"
+                d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
+              />
+            </svg>
+
+            <h1
+              class="text-neutral-400 text-sm text- ml-4"
+              ng-class="['font-variation-card__sample-text', fontVariation.getFlaggedClass(), fontVariation.getTextDirectionClass(), 'font-variation-card__sample-text-line-height']"
+              ng-style="fontVariation.getExampleTextStyle()"
+              display-in-font="fontVariation.getFontDisplayData()"
+              class="ng-binding ng-isolate-scope font-variation-card__sample-text font-variation-card__sample-text-line-height display-in-font--loaded"
+            >
+              Home
+            </h1>
+          </div>
+          <a href="" class="group">
+            <div class="flex items-center mt-4 ml-6">
+              <!-- <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-7 h-7 text-neutral-400 group-hover:text-white active:text-white"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
+                  clip-rule="evenodd"
+                />
+              </svg> -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                height="24"
+                width="24"
+                stroke-width="1"
+                stroke="currentColor"
+                role="img"
+                aria-hidden="true"
+                class="Svg-sc-ytk21e-0 ldgdZj search-active-icon"
+                viewBox="0 0 24 24"
+                style="color: white"
+                data-encore-id="icon"
+              >
+                <path
+                  style="fill: white"
+                  d="M15.356 10.558c0 2.623-2.16 4.75-4.823 4.75-2.664 0-4.824-2.127-4.824-4.75s2.16-4.75 4.824-4.75c2.664 0 4.823 2.127 4.823 4.75z"
+                />
+
+                <path
+                  style="fill: white"
+                  d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 0 1-2.077 5.816l4.344 4.344a1 1 0 0 1-1.414 1.414l-4.353-4.353a9.454 9.454 0 0 1-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z"
+                />
+              </svg>
+
+              <h1
+                class="text-white text-sm text- ml-4"
+                ng-class="['font-variation-card__sample-text', fontVariation.getFlaggedClass(), fontVariation.getTextDirectionClass(), 'font-variation-card__sample-text-line-height']"
+                ng-style="fontVariation.getExampleTextStyle()"
+                display-in-font="fontVariation.getFontDisplayData()"
+                class="ng-binding ng-isolate-scope font-variation-card__sample-text font-variation-card__sample-text-line-height display-in-font--loaded"
+              >
+                Search
+              </h1>
+            </div>
+          </a>
+          <a href="" class="group">
+            <div class="flex items-center mt-4 ml-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-7 h-7 text-neutral-400 group-hover:text-white active:text-white"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125z"
+                />
+              </svg>
+
+              <h1
+                class="text-neutral-400 text-sm text- ml-4 group-hover:text-white active:text-white"
+              >
+                Library
+              </h1>
+            </div>
+          </a>
+        </section>
+        <section>
+          <a href="" class="group">
+            <div class="flex items-center mt-8 ml-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-7 h-7 text-neutral-400 group-hover:text-white active:text-white"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <h1
+                class="text-neutral-400 text-sm text- ml-4 group-hover:text-white active:text-white"
+              >
+                Create Playist
+              </h1>
+            </div>
+          </a>
+          <a href="" class="group">
+            <div class="flex items-center mt-2 ml-6">
+              <img
+                src="https://i1.sndcdn.com/artworks-y6qitUuZoS6y8LQo-5s2pPA-t500x500.jpg"
+                alt=""
+                class="w-7 h-7 rounded"
+              />
+
+              <h1
+                class="text-neutral-400 text-sm text- ml-4 group-hover:text-white active:text-white"
+              >
+                Liked Songs
+              </h1>
+            </div>
+          </a>
+          <div></div>
+        </section>
+      </aside>
+      <div class="w-screen flex flex-col">
+        <header
+          class="flex items-center justify-between w-full h-16 bg-neutral-900"
+        >
+          <div class="flex ml-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-neutral-400"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-neutral-400 ml-3"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </div>
+          <div
+            class="w-[364px] h-[40px] rounded-3xl flex justify-center items-center bg-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-10% h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+            <input
+              type="text"
+              class="w-[90%] h-[70%] outline-0 text-sm font-[10px]"
+              placeholder="What do you want to listen to ?"
+            />
+          </div>
+          <div
+            class="w-[280px] text-[#a7a7a7] flex justify-around items-center font-[1rem] font-semibold font-[var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif))] box-border border-initial"
+          >
+            <button class="tracking-widest hover:text-white">Premium</button
+            ><button class="tracking-widest hover:text-white">Support</button
+            ><button class="tracking-widest hover:text-white">Download</button>
+          </div>
+
+          <div class="mr-6">
+            <a href="./Signup.html">
+              <button
+                class="h-12 w-28 bg-neutral-900 text-neutral-400 font-bold hover:text-white"
+              >
+                Sign Up
+              </button>
+            </a>
+            <a href="./Login.html">
+              <button
+                class="h-12 w-28 bg-white text-black font-bold rounded-full hover:scale-90"
+              >
+                Log In
+              </button>
+            </a>
+          </div>
+        </header>
+        <main
+          class="w-auto grow bg-neutral-800 flex flex-col h-[800px] overflow-y-scroll"
+        >
+          <br /><br />
+          <h1 class="text-white font-bold text-xl mt-5 ml-4">Browse all</h1>
+          <section
+            class="w-full"
+            style="
+              display: grid;
+              column-gap: 50px;
+              row-gap: 50px;
+              grid-template-columns: 170px 170px 170px 170px 170px;
+              padding: 10px;
+            "
+          >
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(30, 50, 100)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">
+                Made For You
+              </h1>
+              <img
+                src="https://t.scdn.co/images/ea364e99656e46a096ea1df50f581efe"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(141, 103, 171)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Charts</h1>
+              <img
+                src="https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_default.jpg"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(232, 17, 91)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">
+                New Releases
+              </h1>
+              <img
+                src="https://i.scdn.co/image/ab67706f000000027ea4d505212b9de1f72c5112"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(141, 103, 171)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Discover</h1>
+              <img
+                src="https://t.scdn.co/images/d0fb2ab104dc4846bdc56d72b0b0d785.jpeg"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(115, 88, 255)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">
+                Live Events
+              </h1>
+              <img
+                src="https://concerts.spotifycdn.com/images/live-events_category-image.jpg"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(180, 155, 200)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Pop</h1>
+              <img
+                src="https://t.scdn.co/media/derived/pop-274x274_447148649685019f5e2a03a39e78ba52_0_0_274_274.jpg"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(20, 138, 8)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">EQUAL</h1>
+              <img
+                src="https://i.scdn.co/image/ab67706f0000000284a1ec26f589f0d569805a07"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+            <section
+              class="w-[210px] h-[210px] bg-neutral-900 hover:bg-neutral-500 rounded-xl relative overflow-hidden"
+              style="background-color: rgb(39, 133, 106)"
+              id="COMP"
+            >
+              <h1 class="text-white font-bold text-2xl ml-3 mt-3">Podcasts</h1>
+              <img
+                src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5"
+                alt=""
+                aria-hidden="false"
+                draggable="false"
+                loading="lazy"
+                class="mMx2LUixlnN_Fu45JpFB tV9cjMpTPaykKsn2OVsw Yn2Ei5QZn19gria6LjZj"
+                style="
+                  bottom: 0;
+                  right: -20px;
+                  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+                  height: 100px;
+                  position: absolute;
+                  width: 100px;
+                  transform: rotate(30deg);
+                "
+              />
+            </section>
+          </section>
+        </main>
+      </div>
+      <section
+        class="flex justify-between w-full bg-gradient-to-r from-[#af2896] to-[#509bf5] bottom-0 h-16 fixed"
+      >
+        <div>
+          <h1 class="uppercase text-white ml-4 text-sm font-light mt-2">
+            Preview Of Spotify
+          </h1>
+          <h1 class="text-white ml-4 text- text-base">
+            Sign up to get unlimited songs and podcasts with occasional ads. No
+            credit card needed.
+          </h1>
+        </div>
+        <button
+          class="h-12 w-40 bg-white text-black font-semibold rounded-full hover:scale-90 mt-2 mr-5"
+        >
+          Sign up free
+        </button>
+      </section>
+      <footer></footer>
+    </section>
+  </body>
+</html>
