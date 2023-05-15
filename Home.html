@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Spotify - Web Player Music for Everyone</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
+    />
+    <script
+      src="https://kit.fontawesome.com/b13453d432.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: 'rgb(16 18 25)',
+              grad1: '#171033',
+              grad2: '#67114c',
+            },
+            fontFamily: {
+              Circular: ['Circular Std', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <section class="flex">
+      <aside
+        class="bg-black w-[232px] h-screen flex flex-col justify-between fixed"
+      >
+        <section>
+          <img
+            class="pt-6 pl-6 pr-14"
+            src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png"
+            width="220px"
+          />
+          <div class="flex items-center mt-8 ml-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-7 h-7 text-white"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <a href="./Home.html">
+              <h1
+                class="text-white text-xs ml-4 font-semibold font-Circular tracking-widest"
+              >
+                Home
+              </h1>
+            </a>
+          </div>
+          <a href="" class="group">
+            <div class="flex items-center mt-4 ml-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-7 h-7 text-neutral-400 group-hover:text-white active:text-white"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <a href="./Search.html"
+                ><h1
+                  class="text-neutral-400 text-sm ml-4 font-semibold font-Circular tracking-wide group-hover:text-white active:text-white"
+                >
+                  Search
+                </h1></a
+              >
+            </div>
+          </a>
+          <a href="" class="group">
+            <div class="flex items-center mt-4 ml-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-7 h-7 text-neutral-400 group-hover:text-white active:text-white"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125z"
+                />
+              </svg>
+
+              <h1
+                class="text-neutral-400 text-sm ml-4 font-semibold font-Circular tracking-wide group-hover:text-white active:text-white"
+              >
+                Library
+              </h1>
+            </div>
+          </a>
+          <div>
+            <a href="" class="group">
+              <div class="flex items-center mt-8 ml-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-7 h-7 text-neutral-400 group-hover:text-white active:text-white"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+
+                <h1
+                  class="text-neutral-400 text-sm font-semibold font-sans ml-4 group-hover:text-white active:text-white"
+                >
+                  Create Playist
+                </h1>
+              </div>
+            </a>
+            <a href="" class="group">
+              <div class="flex items-center mt-2 ml-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-7 h-7 text-neutral-400 group-hover:text-white"
+                >
+                  <path
+                    d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                  />
+                </svg>
+
+                <h1
+                  class="text-neutral-400 text-sm ml-4 font-semibold font-Circular tracking-wide group-hover:text-white active:text-white"
+                >
+                  Liked Songs
+                </h1>
+              </div>
+            </a>
+          </div>
+        </section>
+        <section class="ml-6 mb-14">
+          <div class="flex">
+            <h1 class="text-neutral-400 text-xs">Legal</h1>
+            <h1 class="text-neutral-400 text-xs ml-4">Privacy Center</h1>
+          </div>
+          <div class="flex mt-3">
+            <h1 class="text-neutral-400 text-xs">Privacy Policy</h1>
+            <h1 class="text-neutral-400 text-xs ml-4">Cookies</h1>
+          </div>
+          <h1 class="mt-3 text-neutral-400 text-xs">About Ads</h1>
+          <h1 class="mt-3 text-neutral-400 text-xs">Cookies</h1>
+          <div
+            class="flex mt-6 w-[100px] bg-transparent rounded-full border-solid border border-slate-400 p-2 mb-10"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5 text-white"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+              />
+            </svg>
+            <h1 class="text-white font-bold text-sm ml-1">English</h1>
+          </div>
+        </section>
+      </aside>
+      <div class="w-screen flex flex-col overflow-y-scroll">
+        <header
+          class="flex items-center justify-between w-full h-16 bg-neutral-800"
+        >
+          <div class="flex ml-[260px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-neutral-400"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-neutral-400 ml-3"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </div>
+
+          <div class="mr-6">
+            <button
+              class="h-12 w-28 bg-neutral-800 text-neutral-400 font-bold hover:text-white"
+            >
+              Sign Up
+            </button>
+            <button
+              class="h-12 w-28 bg-white text-black font-bold rounded-full hover:scale-90"
+            >
+              Log In
+            </button>
+          </div>
+        </header>
+        <main class="h-[1250px] grow bg-neutral-900 flex flex-col ml-[232px]">
+          <h1 class="text-white font-bold text-xl mt-5 ml-7">Focus</h1>
+          <section class="flex">
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f00000002ca5a7517156021292e5663a6"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Peaceful Piano
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Relax and indulge with<br />
+                  beautiful piona pieces
+                </h3>
+              </div>
+            </section>
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f000000025551996f500ba876bda73fa5"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Deep Focus
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Keep calm and focus<br />
+                  with ambient and pos...
+                </h3>
+              </div>
+            </section>
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f00000002fe24d7084be472288cd6ee6c"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Instrumental Study
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Focus with soft study music in the background.
+                </h3>
+              </div>
+            </section>
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f00000002724554ed6bed6f051d9b0bfc"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Focus Flow
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Uptempo instrumental hip hop beats.
+                </h3>
+              </div>
+            </section>
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f0000000296e08a91ef3c7a6e7bfaa9a6"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Beats to think to
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Focus with deep techno and tech house.
+                </h3>
+              </div>
+            </section>
+          </section>
+          <h1 class="text-white font-bold text-xl mt-7 ml-7">
+            Spotify Playist
+          </h1>
+          <section class="flex">
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f000000021d051b0d3dcb712c312eb94b"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Peaceful Piano
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Relax and indulge with<br />
+                  beautiful piona pieces
+                </h3>
+              </div>
+            </section>
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f00000002ff53eb23edd09b8920761042"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Deep Focus
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Keep calm and focus<br />
+                  with ambient and pos...
+                </h3>
+              </div>
+            </section>
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f00000002b0fe40a6e1692822f5a9d8f1"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Instrumental Study
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Focus with soft study music in the background.
+                </h3>
+              </div>
+            </section>
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f0000000278b4745cb9ce8ffe32daaf7e"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Focus Flow
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Uptempo instrumental hip hop beats.
+                </h3>
+              </div>
+            </section>
+            <section
+              class="w-44 h-64 bg-neutral-800 hover:bg-neutral-500 transition-all rounded ml-7 mt-5 group"
+            >
+              <img
+                class="ml-3 pt-3 rounded"
+                src="https://i.scdn.co/image/ab67706f0000000208ca740941aa65b5e205c361"
+                width="150px"
+              />
+              <img
+                class="absolute opacity-0 ml-[105px] mt-[-45px] opacity-0.5 group-hover:opacity-100 group-hover:-translate-y-4 ease-out transition-all"
+                src="https://lovepngs.com/images/all_img/copy/1672490351SPOTIFY-PLAY-BUTTO%202%20(1).png"
+                width="50px"
+              />
+              <div>
+                <h2 class="text-white font-semibold ml-3 mt-2 text-sm">
+                  Beats to think to
+                </h2>
+                <h3 class="text-neutral-400 font-light ml-3 mt-2 text-sm">
+                  Focus with deep techno and tech house.
+                </h3>
+              </div>
+            </section>
+          </section>
+          <footer class="mt-[80px] ml-8">
+            <section class="text-white flex">
+              <div>
+                <h1 class="font-bold">Company</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">About</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">Jobs</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">
+                  For the Record
+                </h1>
+              </div>
+              <div class="ml-[100px]">
+                <h1 class="font-bold">Communities</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">
+                  For Artists
+                </h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">Developers</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">
+                  Advertising
+                </h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">Investor</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">Vendors</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">
+                  Spotify for Work
+                </h1>
+              </div>
+              <div class="ml-[100px] mr-auto">
+                <h1 class="font-bold">Useful links</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">Support</h1>
+                <h1 class="text-[#6a6a6a] mt-2 hover:text-white">
+                  Free Mobile App
+                </h1>
+              </div>
+              <div
+                class="w-10 h-10 bg-[#292929] hover:bg-[#a2a2a2] rounded-full"
+              >
+                <img
+                  class="h-[16px] ml-[12px] mt-[12px]"
+                  src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-white-glyph.png"
+                />
+              </div>
+              <div
+                class="w-10 h-10 bg-[#292929] hover:bg-[#a2a2a2] rounded-full ml-5"
+              >
+                <img
+                  class="h-[16px] ml-[12px] mt-[12px]"
+                  src="https://pngimg.com/uploads/twitter/twitter_PNG15.png"
+                />
+              </div>
+              <div
+                class="w-10 h-10 bg-[#292929] hover:bg-[#a2a2a2] rounded-full ml-5 mr-8"
+              >
+                <img
+                  class="h-[20px] ml-[10px] mt-[10px]"
+                  src="https://cdn.freebiesupply.com/images/large/2x/facebook-logo-circle-white.png"
+                />
+              </div>
+            </section>
+            <div class="bg-[#6a6a6a] h-[1px] w-[1580px] mt-[70px]"></div>
+            <h1 class="text-[#b3b3b3] text-xs mt-[50px]">© 2023 Spotify AB</h1>
+          </footer>
+        </main>
+      </div>
+      <section
+        class="flex justify-between w-[1890px] bg-gradient-to-r from-[#af2896] to-[#509bf5] bottom-0 h-16 fixed"
+      >
+        <div>
+          <h1 class="uppercase text-white ml-4 text-sm font-light mt-2">
+            Preview Of Spotify
+          </h1>
+          <h1 class="text-white ml-4 font-normal text-base">
+            Sign up to get unlimited songs and podcasts with occasional ads. No
+            credit card needed.
+          </h1>
+        </div>
+        <button
+          class="h-12 w-40 bg-white text-black font-semibold rounded-full hover:scale-90 mt-2 mr-5"
+        >
+          Sign up free
+        </button>
+      </section>
+    </section>
+  </body>
+</html>
